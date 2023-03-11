@@ -59,7 +59,7 @@ const Login = () => {
                 <form onSubmit={submitForm}>
                     {/* Email Address */}
                     <div>
-                        <Label htmlFor="email">E-mail</Label>
+                        <Label htmlFor="email">Email</Label>
 
                         <Input
                             id="email"
