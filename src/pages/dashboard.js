@@ -1,12 +1,13 @@
 import AppLayout from '@/components/Layouts/AppLayout'
 import Head from 'next/head'
-
+import { useRouter } from 'next/router'
 const Dashboard = () => {
+  const router = useRouter()
     return (
         <AppLayout
             header={
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Dashboard
+                  {router.pathname}
                 </h2>
             }>
 
