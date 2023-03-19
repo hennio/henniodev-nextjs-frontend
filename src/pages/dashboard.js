@@ -1,8 +1,16 @@
 import AppLayout from '@/components/Layouts/AppLayout'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-const Dashboard = () => {
-  const router = useRouter()
+import axios from "@/lib/axios";
+import {useEffect, useState} from "react";
+
+const Dashboard = (props) => {
+
+    const router = useRouter()
+    const [users, setUsers] = useState([])
+
+    useEffect(() => {axios.get("api/users").then((response) => {setUsers(response.data.data)}).catch((error) => console.error(error))}, []);
+
     return (
         <AppLayout
             header={
@@ -19,7 +27,13 @@ const Dashboard = () => {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 bg-white border-b border-gray-200">
-                            You're logged in!
+                            {users.map(user => (
+                                <div key={user.name}>
+                                    <h2>
+                                        Name: {user.name}
+                                    </h2>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -27,5 +41,4 @@ const Dashboard = () => {
         </AppLayout>
     )
 }
-
 export default Dashboard

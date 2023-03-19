@@ -8,18 +8,16 @@ import axios from '@/lib/axios'
 const Dashboard = () => {
   const router = useRouter()
 
-  const { users } = useSWR('/api/users', () =>
-    axios
-      .get('/api/users')
-      .then(res => {
-        console.log(res.data)
-      })
-      .catch(error => {
-        throw error
-      }),
-  )
+  const myFunc = async () => {
+    const { data } = await axios.get('/api/users');
+    return data;
+  }
 
-  console.log(users)
+
+const users = myFunc()
+console.log(users.data)
+
+
     return (
         <AppLayout
             header={
@@ -36,7 +34,7 @@ const Dashboard = () => {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 bg-white border-b border-gray-200">
-                          {users}
+
                         </div>
                     </div>
                 </div>
