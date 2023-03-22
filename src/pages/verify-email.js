@@ -15,7 +15,7 @@ const VerifyEmail = () => {
     const [status, setStatus] = useState(null)
 
     return (
-        <GuestLayout>
+
             <AuthCard
                 logo={
                     <Link href="/">
@@ -51,7 +51,7 @@ const VerifyEmail = () => {
                     </button>
                 </div>
             </AuthCard>
-        </GuestLayout>
+
     )
 }
 

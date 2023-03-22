@@ -39,7 +39,7 @@ const PasswordReset = () => {
     }, [router.query.email])
 
     return (
-        <GuestLayout>
+
             <AuthCard
                 logo={
                     <Link href="/">
@@ -113,7 +113,7 @@ const PasswordReset = () => {
                     </div>
                 </form>
             </AuthCard>
-        </GuestLayout>
+
     )
 }
 

@@ -24,7 +24,7 @@ const ForgotPassword = () => {
     }
 
     return (
-        <GuestLayout>
+
             <AuthCard
                 logo={
                     <Link href="/">
@@ -63,7 +63,7 @@ const ForgotPassword = () => {
                     </div>
                 </form>
             </AuthCard>
-        </GuestLayout>
+
     )
 }
 
