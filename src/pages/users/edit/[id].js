@@ -4,7 +4,10 @@ import { useRouter } from 'next/router'
 import axios from "@/lib/axios";
 
 export const getStaticPaths = async () => {
-    const {data} = await axios.get("api/users")
+
+    const {data} = await axios.get("api/users");
+
+    console.log(data.data);
 
     const users = data.data;
     const paths = users.map((user) => ({ params: { id: user.id.toString() } }));
